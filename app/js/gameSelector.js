@@ -11,6 +11,11 @@ const socket = io(`http://${window.location.hostname}:8080`);
 
 Login.style.display = 'block';
 
+Game.style.display = 'none';
+MainMenu.style.display = 'none';
+
+let GameMode = "menu"
+
 login.onclick = () => {
   username = document.getElementById('username').value
 
@@ -24,15 +29,17 @@ socket.on('users', (users) => {
   userList.innerHTML = users.map((user) => `<li>${user}</li>`).join('')
 })
 
-Game.style.display = 'none';
-MainMenu.style.display = 'none';
-
-let GameMode = "menu"
-
-Start_uno.onclick = () => {
+function startGame() {
   MainMenu.style.display = 'none';
   Game.style.display = 'block';
-  TitleBar.textContent = "UNO";
-  GameMode = "uno"
-  socket.emit("gameMode", GameMode);
+  TitleBar.textContent = GameMode.toUpperCase();
 }
+
+Start_uno.onclick = () => {
+  socket.emit("gameMode", "uno");
+}
+
+socket.on('gameMode', (mode) => {
+  GameMode = mode;
+  startGame();
+});
