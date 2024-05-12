@@ -1,9 +1,11 @@
 const http = require('http').createServer()
 const io = require('socket.io')(http, {cors: {origin: '*',},})
+const {UnoGame, UnoCard, UnoPlayer} = require('./uno')
 
 let users = []
 let sockets = []
 let GameMode = "menu"
+let game;
 
 io.on('connection', (socket) => {
   console.log('a user connected')
@@ -24,7 +26,20 @@ io.on('connection', (socket) => {
   socket.on('gameMode', (mode) => {
     GameMode = mode;
     io.emit('gameMode', GameMode);
+    startGame();
+    io.emit('update', game.state());
+  })
+
+  socket.on('move', (move) => {
+  
   })
 });
+
+function startGame() {
+  if (GameMode === "uno") {
+    game = new UnoGame(users)
+    game.fillDeck()
+  }
+}
 
 http.listen(8080, () => {console.log('listening on port :8080')})

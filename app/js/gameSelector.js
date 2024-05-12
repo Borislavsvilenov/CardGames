@@ -16,6 +16,8 @@ MainMenu.style.display = 'none';
 
 let GameMode = "menu"
 
+let NewGame;
+
 login.onclick = () => {
   username = document.getElementById('username').value
 
@@ -37,9 +39,15 @@ function startGame() {
 
 Start_uno.onclick = () => {
   socket.emit("gameMode", "uno");
+  NewGame = new UnoGame();
 }
 
 socket.on('gameMode', (mode) => {
   GameMode = mode;
   startGame();
+});
+
+socket.on('update', (state) => {
+  NewGame.setState(state);
+  NewGame.displayCards();
 });
