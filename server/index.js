@@ -1,6 +1,6 @@
 const http = require('http').createServer()
 const io = require('socket.io')(http, {cors: {origin: '*',},})
-const {UnoGame, UnoCard, UnoPlayer} = require('./uno')
+const {UnoGame, UnoCard} = require('./uno')
 
 let users = []
 let sockets = []
@@ -31,7 +31,8 @@ io.on('connection', (socket) => {
   })
 
   socket.on('move', (move) => {
-  
+    game.manageTurn(move[0], move[1]);
+    io.emit('update', game.state());
   })
 });
 
@@ -39,6 +40,8 @@ function startGame() {
   if (GameMode === "uno") {
     game = new UnoGame(users)
     game.fillDeck()
+    game.shuffle()
+    game.dealCards()
   }
 }
 

@@ -6,7 +6,7 @@
     <title>CARD GAMES</title>
     <link rel="stylesheet" href="style.css">
 
-    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
 
   </head>
 
@@ -41,22 +41,39 @@
       <div id="Game" class="button">
         <div id="GameArea">
           <div id="uno">
-            <div id="top_card">
-              <img id="top_card_img" src="assets/+4.png">
+            <div id="Deck and Card" class="center_of_screen">
+              <div id="main_deck">
+
+              </div>
+              
+              <div id="top_card">
+                <img id="top_card_img" src="assets/+4.png">
+              </div>
             </div>
 
             <div id="uno_players">
+              <div id="player_1">
+                
+              </div>
 
+              <div id="player_2">
+                
+              </div>
+
+              <div id="player_3">
+                
+              </div>
+
+              <div id="player_4">
+                
+              </div>
             </div>
 
-            <div id="uno_hand">
-
-            </div>
+            
           </div>
 
         </div>
       </div>
-
     </div>
 
     <script src="js/uno.js"></script>

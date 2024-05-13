@@ -28,7 +28,8 @@ login.onclick = () => {
 }
 
 socket.on('users', (users) => {
-  userList.innerHTML = users.map((user) => `<li>${user}</li>`).join('')
+  players = users;
+  userList.innerHTML = players.map((user) => `<li>${user}</li>`).join('')
 })
 
 function startGame() {

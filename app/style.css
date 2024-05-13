@@ -8,6 +8,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
   height: 100vh;
   background-color: #3C3C3C;
 }
@@ -24,6 +25,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
   font-size: 24px;
   text-align: center;
 }
@@ -71,6 +73,7 @@ body {
   display: flex;
   align-items: left;
   justify-content: left;
+  flex-direction: column;
   font-size: 24px;
   text-align: left;
 }
@@ -87,5 +90,12 @@ body {
   text-align: center;
   letter-spacing: 0.1em;
   font-size: 24px;
+}
+
+.center_of_screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
 }
 
