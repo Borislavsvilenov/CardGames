@@ -84,7 +84,6 @@ class UnoGame {
         topCard.src = CardAddresses[this.toString(card)]
       } else if (card.owner === players[0]) {
         p1.innerHTML = "<img src=" + CardAddresses[this.toString(card)] + ">";
-
       } else if (card.owner != "deck") {
 
       }
