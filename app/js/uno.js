@@ -60,7 +60,7 @@ let CardAddresses = {
   "blue reverse": "assets/blueReverse.png",
   "blue skip": "assets/blueSkip.png",
   "black +4": "assets/+4.png",
-  "black wild": "assets/Wild.png",
+  "black wild": "assets/Wild.png"
 }
 
 class UnoGame {
