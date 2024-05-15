@@ -61,7 +61,6 @@ class UnoGame {
         this.deck.push(new Card("blue", "skip", i));
       }
     }
-    this.deck[84].owner = "TopCard"
   }
 
   state() {
