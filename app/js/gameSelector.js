@@ -20,6 +20,7 @@ let NewGame;
 
 login.onclick = () => {
   username = document.getElementById('username').value
+  player = username;
 
   socket.emit('login', username)
 

@@ -4,6 +4,7 @@ let p2 = document.getElementById('player_2');
 let p3 = document.getElementById('player_3');
 let p4 = document.getElementById('player_4');
 let players = [];
+let player;
 
 
 let CardAddresses = {
@@ -82,7 +83,7 @@ class UnoGame {
     this.deck.forEach(card => {
       if (card.owner === "TopCard") {
         topCard.src = CardAddresses[this.toString(card)]
-      } else if (card.owner === players[0]) {
+      } else if (card.owner === player) {
         p1.innerHTML = p1.innerHTML + "<img" + " class=" + "card" + " src=" + CardAddresses[this.toString(card)] + ">";
       } else if (card.owner != "deck") {
 
