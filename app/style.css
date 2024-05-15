@@ -99,3 +99,8 @@ body {
   flex-direction: row;
 }
 
+.card {
+  margin: 20px;
+  border: 0;
+}
+

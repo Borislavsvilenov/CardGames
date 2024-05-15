@@ -83,7 +83,7 @@ class UnoGame {
       if (card.owner === "TopCard") {
         topCard.src = CardAddresses[this.toString(card)]
       } else if (card.owner === players[0]) {
-        p1.innerHTML = "<img src=" + CardAddresses[this.toString(card)] + ">";
+        p1.innerHTML = p1.innerHTML + "<img" + " class=" + "card" + " src=" + CardAddresses[this.toString(card)] + ">";
       } else if (card.owner != "deck") {
 
       }
