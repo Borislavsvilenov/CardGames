@@ -40,12 +40,12 @@ function startGame() {
 }
 
 Start_uno.onclick = () => {
-  socket.emit("gameMode", "uno");
-  NewGame = new UnoGame();
+  socket.emit("start", "uno");
 }
 
 socket.on('gameMode', (mode) => {
   GameMode = mode;
+  if(GameMode === "uno"){ NewGame = new UnoGame(); }
   startGame();
 });
 
