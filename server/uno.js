@@ -166,4 +166,4 @@ class Card {
   }
 }
 
-module.exports = {UnoGame, Card, shuffleArray};
+module.exports = {UnoGame, Card};

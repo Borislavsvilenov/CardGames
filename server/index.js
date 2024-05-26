@@ -1,6 +1,6 @@
 const http = require('http').createServer()
 const io = require('socket.io')(http, {cors: {origin: '*',},})
-const {UnoGame} = require('./uno.js')
+const {UnoGame, UnoCard} = require('./uno.js')
 
 let users = []
 let sockets = []
