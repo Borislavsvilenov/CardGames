@@ -12,7 +12,6 @@ class UnoGame {
   constructor(users) {
     this.deck = [];
     this.InDeck = [];
-    this.InPlayers = [];
     this.played = [];
     this.topCard = null;
     this.players = users;
@@ -72,10 +71,11 @@ class UnoGame {
       this.InDeck = this.played;
       this.played = [];
     }
-    
-    this.InPlayers.push(this.InDeck[0]);
+   
+    console.log(this.deck[this.InDeck[0].id].owner)
     this.deck[this.InDeck[0].id].owner = player;
     this.InDeck.splice(0, 1);
+    console.log(this.deck[this.InDeck[0].id].owner)
   }
 
   dealCards() {
@@ -97,6 +97,9 @@ class UnoGame {
         this.takeCard(this.players[3]);
       }
     }
+
+    this.topCard = this.InDeck[0];
+    this.InDeck.splice(0, 1);
   }
 
   playCard(cardidx) {
@@ -142,8 +145,8 @@ class UnoGame {
   }
 
   shuffle() {
-    this.deck = shuffleArray(this.deck);
     this.InDeck = this.deck.filter(card => card.owner === "deck");
+    this.InDeck = shuffleArray(this.deck);
   }
 }
 
